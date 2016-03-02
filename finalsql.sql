@@ -13,13 +13,13 @@ create table product (id int primary key,name varchar(20),color_id int,seller in
 
 
 
-create table info_price (id int,price double,FOREIGN KEY (id) REFERENCES product(id));
+create table info_price (id int primary key,price double,quantity int,seller_price double);
 
 
 create table info_order(order_id int primary key,order_cost double,user_id int,date date,FOREIGN KEY (user_id) REFERENCES user(id));
 alter table info_order AUTO_INCREMENT=1001;
 
-create table t_order(order_id int,product_id int,FOREIGN KEY (order_id) REFERENCES info_order(order_id),FOREIGN KEY (product_id) REFERENCES product(id));
+create table t_order(order_id int,product_id int,FOREIGN KEY (order_id) REFERENCES info_order(order_id));
 
 
 
@@ -72,13 +72,13 @@ insert into product values(7,'Apple',202,117);
 
 
 
-insert into info_price values(1,1000,9);
-insert into info_price values(2,2000,6);
-insert into info_price values(3,1500,4);
-insert into info_price values(4,3000,10);
-insert into info_price values(5,2500,3);
-insert into info_price values(6,5000,7);
-insert into info_price values(7,4000,6);
+insert into info_price values(1,1000,9,900);
+insert into info_price values(2,2000,6,1200);
+insert into info_price values(3,1500,4,1000);
+insert into info_price values(4,3000,10,2300);
+insert into info_price values(5,2500,3,1500);
+insert into info_price values(6,5000,7,2500);
+insert into info_price values(7,4000,6,3000);
 
 
 
